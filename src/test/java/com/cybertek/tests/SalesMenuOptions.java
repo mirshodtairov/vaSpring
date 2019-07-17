@@ -11,15 +11,16 @@ import org.testng.annotations.*;
 public class SalesMenuOptions {
     WebDriver driver = new ChromeDriver();
     @BeforeMethod
-    public void test1(){
+    public void test1() throws InterruptedException {
         driver.get("http://qa3.vytrack.com");
+        Thread.sleep(5000);
 
 
     }
     @Test
     public void test2() throws InterruptedException {
        
-        driver.findElement(By.name("button"));
+       // driver.findElement(By.name("button"));
         driver.findElement(By.id("prependedInput")).sendKeys("storemanager69");
         driver.findElement(By.id("prependedInput2")).sendKeys("UserUser123"+ Keys.ENTER);
         Assert.assertEquals(driver.findElement(By.xpath("(//*[@class='title title-level-1'])[4]")).getText(),"Sales");
